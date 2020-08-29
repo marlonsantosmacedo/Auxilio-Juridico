@@ -20,7 +20,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 
 ### 4. PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1. RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-[Arquivo PDF do Protótipo Balsamiq feito para Auxílio Jurídico](https://github.com/discipbd1/trab01/blob/master/arquivos/Auxílio%20Jurídico.pdf?raw=true)
+[Arquivo PDF do Protótipo Balsamiq feito para Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/Auxílio%20Jurídico.pdf?raw=true)
 
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
@@ -40,11 +40,11 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
     a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     
-![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
+![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
     
     
 ### 5.MODELO CONCEITUAL<br>
-![Modelo Conceitual](https://github.com/discipbd1/trab01/blob/master/images/modeloconceitual.png?raw=true)
+![Modelo Conceitual](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
     
     
         
