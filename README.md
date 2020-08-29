@@ -8,25 +8,20 @@ Integrantes do grupo<br>
 Lucas Neves de Oliveira: lucas.7.snow@gmail.com<br>
 Marlon Santos Macedo: wazymazy@gmail.com<br>
 
-### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
+### 2. INTRODUÇÃO E MOTIVAÇÃO<br>
 Este documento contém a especificação do projeto do banco de dados Auxílio Jurídico
 <br>e motivação da escolha realizada. <br>
 
-> A empresa "Devcom Projetos" visa colaborar com desenvolvimento de projetos para uma sociedade melhor. Sabendo-se dos desafios para gerenciar projetos dentro de uma empresa e visando unir as informações relativas a funcionários, departamentos e projetos em um mesmo local, ficamos motivados com o desenvolvimento deste sistema. O Sistema "Devcom" tem como objetivo gerenciar todas as informações ao desenvolvimento das atividades de projetos em diversas localidades do país. Para realizar suas operações adequadamente e empresa necessita que sistema que armazene informações relativas aos Projetos, Departamentos e Empregados, além de também armazenar dados sobre  Dependentes e Históricos de Salário dos empregados. O sistema deverá gerar um conjunto de relatórios que por sua vez atenderá os anseios da empresa em questão.
- 
+O Sistema “Auxílio Jurídico” tem como objetivo auxiliar juridicamente as pessoas de baixa renda na pandemia. Muitos cidadãos tiveram problemas em receber seus benefícios, como: seguro-desemprego, auxílio emergencial etc. Os cidadãos não podem sair de casa para poder resolver esses problemas, e muitos não podem pagar advogados ou nem sabem como recorrer, e é nessa hora que entra o “Auxílio Jurídico”.
 
-### 3.MINI-MUNDO<br>
+### 3. MINI-MUNDO<br>
 
-O Sistema “Auxílio Jurídico” tem como objetivo auxiliar juridicamente as pessoas de baixa renda na pandemia. Muitos cidadãos tiveram problemas em receber seus benefícios, como: seguro-desemprego, auxílio emergencial etc. Os cidadãos não podem sair de casa para poder resolver esses problemas, e muitos não podem pagar advogados ou nem sabem como recorrer, e é nessa hora que entra o “Auxílio Jurídico”. Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu nome, CPF, senha, CTPS (se possuir), RG, número de telefone e data de nascimento. Após isso, o auxiliado pode abrir uma ou mais solicitações. Cada solicitação possui um código único, o registro de seu estado atual, do auxiliado que a abriu, e da data em que foi aberta. Uma solicitação só pode estar vinculada a apenas um auxiliado, o que a abriu. As solicitações podem ser atendidas por advogados, que devem se cadastrar no sistema informando seu nome, CPF, senha e número do registro na OAB. Um advogado pode atender a várias solicitações, mas uma solicitação só pode ser atendida por um advogado. Após a solicitação ser atendida, o auxiliado e o advogado podem trocar mensagens, que possuem um código único, o texto enviado, a data de envio e o remetente, que pode ser tanto um auxiliado, quanto um advogado. Toda mensagem deve estar vinculada a apenas uma solicitação, já as solicitações podem possuir várias mensagens. Durante o processo, o estado da solicitação pode ser alterada pelo advogado para indicar se está em aguardando atendimento, em andamento, aguardando informações ou finalizada.
+Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu nome, CPF, senha, CTPS (se possuir), RG, número de telefone e data de nascimento. Após isso, o auxiliado pode abrir uma ou mais solicitações. Cada solicitação possui um código único, o registro de seu estado atual, do auxiliado que a abriu, e da data em que foi aberta. Uma solicitação só pode estar vinculada a apenas um auxiliado, o que a abriu. As solicitações podem ser atendidas por advogados, que devem se cadastrar no sistema informando seu nome, CPF, senha e número do registro na OAB. Um advogado pode atender a várias solicitações, mas uma solicitação só pode ser atendida por um advogado. Após a solicitação ser atendida, o auxiliado e o advogado podem trocar mensagens, que possuem um código único, o texto enviado, a data de envio e o remetente, que pode ser tanto um auxiliado, quanto um advogado. Toda mensagem deve estar vinculada a apenas uma solicitação, já as solicitações podem possuir várias mensagens. Durante o processo, o estado da solicitação pode ser alterada pelo advogado para indicar se está em aguardando atendimento, em andamento, aguardando informações ou finalizada.
 
-### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
-#### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-Neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
+### 4. PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
+#### 4.1. RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
+[Arquivo PDF do Protótipo Balsamiq feito para Auxílio Jurídico](https://github.com/discipbd1/trab01/blob/master/arquivos/Auxílio%20Jurídico.pdf?raw=true)
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
-
-![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
-![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
