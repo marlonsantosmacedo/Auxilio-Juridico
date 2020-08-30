@@ -42,7 +42,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
         
     
 #### 5.1 Validação do Modelo Conceitual
-    ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.<br>
+    ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.
     Não tiveram observação.
 
 
