@@ -23,7 +23,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO? 
 > O sistema Auxílio Jurídico utiliza principalmente as seguintes consultas:
 * Buscar um auxiliado por nome de usuário.
-* Listar soliciatações abertas por um auxiliado.
+* Listar solicitações abertas por um auxiliado.
 * Listar solicitações não atendidas por nenhum profissional.
 * Listar solicitações em aberto atendidas por um profissional jurídico.
 * Listar mensagens de ligadas a uma solicitação.
