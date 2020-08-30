@@ -29,10 +29,10 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 * Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-![Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
+[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
     
 ### 5.MODELO CONCEITUAL<br>
-![Modelo Conceitual](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
+![Modelo conceitual do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
     
 #### 5.1 Validação do Modelo Conceitual
     ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.
@@ -46,7 +46,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
     MENSAGEM: Armazena os dados das mensagens (código, texto e data de envio) e quem são os remetentes.
 
 ### 6	MODELO LÓGICO<br>
-![Imagem do modelo lógico Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/loogico%20(1).png?raw=true)
+![Modelo lógico do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/loogico%20(1).png?raw=true)
 
 ### 7	MODELO FÍSICO<br>
 ```sql
@@ -88,12 +88,7 @@ CREATE TABLE MENSAGEM (
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
-        (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
-        b) Criar um novo banco de dados para testar a restauracao 
-        (em caso de falha na restauração o grupo não pontuará neste quesito)
-        c) formato .SQL
-
+[Arquivo com drops, creates e inserts.](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/drops_creates_e_inserts.sql?raw=true)
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
