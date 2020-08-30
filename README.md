@@ -60,40 +60,42 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
         (não serão aceitos modelos que não estejam em conformidade)
 
 ### 7	MODELO FÍSICO<br>
-    create table USUARIO (
-    nome varchar(60),
-    cpf bigint primary key,
-    senha varchar(30)
-    );
+```sql
+CREATE TABLE USUARIO (
+	nome varchar(60),
+	cpf bigint PRIMARY KEY,
+	senha varchar(30)
+);
 
-    create table PROFISSIONAL_JURIDICO (
-    cpf_usuario bigint references USUARIO(cpf) primary key,
-    numero_oab bigint
-    );
+CREATE TABLE PROFISSIONAL_JURIDICO (
+	cpf_usuario bigint REFERENCES USUARIO(cpf) PRIMARY KEY,
+	numero_oab bigint
+);
 
-    create table AUXILIADO (
-    cpf_usuario bigint references USUARIO(cpf) primary key,
-    ctps bigint,
-    rg bigint,
-    numero_telefone int,
-    data_nascimento date
-    );
+CREATE TABLE AUXILIADO (
+	cpf_usuario bigint REFERENCES USUARIO(cpf) PRIMARY KEY,
+	ctps bigint,
+	rg bigint,
+	numero_telefone int,
+	data_nascimento date
+);
 
-    create table SOLICITACAO (
-    codigo serial primary key,
-    estado_atual varchar(100),
-    data_abertura date,
-    cpf_auxiliado bigint references AUXILIADO(cpf_usuario),
-    cpf_profissional bigint references PROFISSIONAL_JURIDICO(cpf_usuario)
-    );
+CREATE TABLE SOLICITACAO (
+	codigo serial PRIMARY KEY,
+	estado_atual varchar(100),
+	data_abertura date,
+	cpf_auxiliado bigint REFERENCES AUXILIADO(cpf_usuario),
+	cpf_profissional bigint REFERENCES PROFISSIONAL_JURIDICO(cpf_usuario)
+);
 
-    create table MENSAGEM (
-    codigo serial primary key,
-    codigo_solicitacao serial references SOLICITACAO(codigo),
-    texto varchar(255),
-    data_envio timestamp,
-    cpf_remetente bigint references USUARIO(cpf)
-    );
+CREATE TABLE MENSAGEM (
+	codigo serial PRIMARY KEY,
+	codigo_solicitacao serial REFERENCES SOLICITACAO(codigo),
+	texto varchar(255),
+	data_envio timestamp,
+	cpf_remetente bigint REFERENCES USUARIO(cpf)
+);
+```
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
