@@ -17,7 +17,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 
 ### 4. PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1. RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-![Imagem de mockup do sistema Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/balsamiq.jpeg?raw=true)
+![Imagem de mockup do sistema Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/mockup.jpeg?raw=true)
 [Arquivo PDF do Protótipo Balsamiq feito para Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/Auxílio%20Jurídico.pdf?raw=true)
 
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO? 
