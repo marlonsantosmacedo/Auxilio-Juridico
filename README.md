@@ -29,7 +29,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 * Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
+![Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
     
 ### 5.MODELO CONCEITUAL<br>
 ![Modelo Conceitual](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
@@ -46,9 +46,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
     MENSAGEM: Armazena os dados das mensagens (código, texto e data de envio) e quem são os remetentes.
 
 ### 6	MODELO LÓGICO<br>
-        a) inclusão do esquema lógico do banco de dados
-        b) verificação de correspondencia com o modelo conceitual 
-        (não serão aceitos modelos que não estejam em conformidade)
+![Imagem do modelo lógico Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/loogico%20(1).png?raw=true)
 
 ### 7	MODELO FÍSICO<br>
 ```sql
