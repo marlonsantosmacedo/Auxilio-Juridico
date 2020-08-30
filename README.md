@@ -19,10 +19,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 #### 4.1. RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 [Arquivo PDF do Protótipo Balsamiq feito para Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/Auxílio%20Jurídico.pdf?raw=true)
 
-#### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
-    a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
-    b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
-    
+#### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO? 
 > O sistema Auxílio Jurídico utiliza principalmente as seguintes consultas:
 * Buscar um profissional jurídico por nome de usuário.
 * Buscar um auxíliado por nome de usuário.
