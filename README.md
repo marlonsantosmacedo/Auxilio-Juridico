@@ -91,8 +91,9 @@ CREATE TABLE MENSAGEM (
 [Arquivo com drops, creates e inserts.](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/drops_creates_e_inserts.sql?raw=true)
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
-    OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
+[Visualizar em tempo real no Colab](https://colab.research.google.com/drive/1j0ICDi_BpbP6BwfdsQ4bEc74kuqLuRNM?usp=sharing) <br>
+[Visualizar em tempo real no GitHub](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/AuxilioJuridico_tabelas.ipynb)
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
