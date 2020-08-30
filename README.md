@@ -29,7 +29,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 * Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-![Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
+[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
     
 ### 5.MODELO CONCEITUAL<br>
 ![Modelo Conceitual](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
