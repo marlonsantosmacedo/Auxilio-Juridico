@@ -22,29 +22,21 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO? 
 > O sistema Auxílio Jurídico utiliza principalmente as seguintes consultas:
-* Buscar um profissional jurídico por nome de usuário.
-* Buscar um auxíliado por nome de usuário.
+* Buscar um auxiliado por nome de usuário.
+* Listar soliciatações abertas por um auxiliado.
 * Listar solicitações não atendidas por nenhum profissional.
 * Listar solicitações em aberto atendidas por um profissional jurídico.
 * Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-    a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
-    b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
-    
-![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
-    
+![Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
     
 ### 5.MODELO CONCEITUAL<br>
 ![Modelo Conceitual](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
     
-    
-        
-    
 #### 5.1 Validação do Modelo Conceitual
     ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.
     Não tiveram observação.
-
 
 #### 5.2 Descrição dos dados 
     USUARIO: É a tabela responsável por armazenar os dados cruciais usuário (nome, cpf e senha).
@@ -52,7 +44,6 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
     PROFISSIONAL_JURIDICO: Responsável por armazenar o nº OAB do profissional e o usuário ao qual está atrelado.
     SOLICITACAO: Contém os dados da solicitação (código, estado atual e data de abertura).
     MENSAGEM: Armazena os dados das mensagens (código, texto e data de envio) e quem são os remetentes.
-    
 
 ### 6	MODELO LÓGICO<br>
         a) inclusão do esquema lógico do banco de dados
