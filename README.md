@@ -32,7 +32,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 [Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
     
 ### 5.MODELO CONCEITUAL<br>
-![Modelo conceitual do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/modeloconceitual.png?raw=true)
+![Modelo conceitual do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/modeloconceitual.png?raw=true)
     
 #### 5.1 Validação do Modelo Conceitual
     ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.
@@ -46,7 +46,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
     MENSAGEM: Armazena os dados das mensagens (código, texto e data de envio) e quem são os remetentes.
 
 ### 6	MODELO LÓGICO<br>
-![Modelo lógico do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/loogico%20(1).png?raw=true)
+![Modelo lógico do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/modelologico.png?raw=true)
 
 ### 7	MODELO FÍSICO<br>
 ```sql
