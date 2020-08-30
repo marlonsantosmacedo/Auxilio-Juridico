@@ -9,9 +9,6 @@ Lucas Neves de Oliveira: lucas.7.snow@gmail.com<br>
 Marlon Santos Macedo: wazymazy@gmail.com<br>
 
 ### 2. INTRODUÇÃO E MOTIVAÇÃO<br>
-Este documento contém a especificação do projeto do banco de dados Auxílio Jurídico
-<br>e motivação da escolha realizada. <br>
-
 O Sistema “Auxílio Jurídico” tem como objetivo auxiliar juridicamente as pessoas de baixa renda na pandemia. Muitos cidadãos tiveram problemas em receber seus benefícios, como: seguro-desemprego, auxílio emergencial etc. Os cidadãos não podem sair de casa para poder resolver esses problemas, e muitos não podem pagar advogados ou nem sabem como recorrer, e é nessa hora que entra o “Auxílio Jurídico”.
 
 ### 3. MINI-MUNDO<br>
@@ -26,15 +23,12 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
-* Relatório relativo aos os supervisores e supervisionados. O resultado deve conter o nome do supervisor e nome do supervisionado além da quantidade total de horas que cada supervisionado tem alocada aos projetos existentes na empresa.
-* Relatorio que mostre para cada linha obtida o nome do departamento, o valor individual de cada salario existente no  departamento e a média geral de salarios dentre todos os empregados. Os resultados devem ser apresentados ordenados por departamento.
-* Relatório que mostre as informações relacionadas a todos empregados de empresa (sem excluir ninguém). As linhas resultantes devem conter informações sobre: rg, nome, salario do empregado, data de início do salario atual, nomes dos projetos que participa, quantidade de horas e localização nos referidos projetos, numero e nome dos departamentos aos quais está alocado, informações do historico de salário como inicio, fim, e valores de salarios antigos que foram inclusos na referida tabela (caso possuam informações na mesma), além de todas informações relativas aos dependentes. 
->> ##### Observações: <br> a) perceba que este relatório pode conter linhas com alguns dados repetidos (mas não todos). <br>  b) para os empregados que não possuirem alguma destas informações o valor no registro deve aparecer sem informação/nulo. 
-* Relatório que obtenha a frequencia absoluta e frequencia relativa da quantidade de cpfs únicos no relatório anterior. Apresente os resultados ordenados de forma decrescente pela frequencia relativa.
-
- 
+> O sistema Auxílio Jurídico utiliza principalmente as seguintes consultas:
+* Buscar um profissional jurídico por nome de usuário.
+* Buscar um auxíliado por nome de usuário.
+* Listar solicitações não atendidas por nenhum profissional.
+* Listar solicitações em aberto atendidas por um profissional jurídico.
+* Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
     a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
@@ -50,16 +44,16 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
         
     
 #### 5.1 Validação do Modelo Conceitual
-    ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.
-     Não tiveram observação.
+    ATVGen: Matheus Costa Evangelista, Natan Paschoal Cypriano, Rafael de Almeida Viana Gusmão.<br>
+    Não tiveram observação.
 
 
 #### 5.2 Descrição dos dados 
-    USUARIO: É a tabela responsavel por armazenar os dados cruciais usuário(nome,cpf e senha).
-    Auxiliado (Usuário): A tabela responsavel por pegar os dados de quem é auxiliado (CTPS, RG, telefone e data de nascimento).
-    Advogado (Usuário): pega o  nº OAB do profissional.
-    Solicitação: Guarda os dados da solicitação (código, estado atual e data de abertura).
-    Mensagens: Armazenas as mensagens e os dados do remetente e da mensagem(código, texto, data de envio e remetente).
+    USUARIO: É a tabela responsável por armazenar os dados cruciais usuário (nome, cpf e senha).
+    AUXILIADO: Tabela responsável por armazenar os dados de quem é auxiliado (CTPS, RG, telefone e data de nascimento) e o usuário ao qual está atrelado.
+    PROFISSIONAL_JURIDICO: Responsável por armazenar o nº OAB do profissional e o usuário ao qual está atrelado.
+    SOLICITACAO: Contém os dados da solicitação (código, estado atual e data de abertura).
+    MENSAGEM: Armazena os dados das mensagens (código, texto e data de envio) e quem são os remetentes.
     
 
 ### 6	MODELO LÓGICO<br>
