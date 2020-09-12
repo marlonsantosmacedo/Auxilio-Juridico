@@ -98,18 +98,52 @@ CREATE TABLE MENSAGEM (
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+	SELECT * FROM usuario where nome = 'Emanuel';
+	SELECT * FROM profissional_juridico where numero_oab = 5667;
+	SELECT * FROM mensagem where codigo < 9;
+	SELECT * FROM solicitacao where estado_atual = 'FECHADO';
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
+    	SELECT * FROM solicitacao where estado_atual = 'ABERTO' and data_abertura > '2021-02-21';
+	SELECT * FROM solicitacao where estado_atual = 'ABERTO' or data_abertura > '2021-01-12';
+	SELECT * FROM mensagem where not codigo_solicitacao = 1 ;
+	SELECT * FROM mensagem where codigo != 5 and codigo_solicitacao !=2;
+	SELECT * FROM usuario where not nome = 'Lucas' and cpf > 20000;
+	
     b) Criar no mínimo 3 consultas com operadores aritméticos 
+    	select codigo, (cpf_auxiliado - cpf_profissional) as cpf_subitraido from solicitacao;
+	select data_envio, (cpf_remetente/codigo_solicitacao ) as cpf_div_cod_pr from mensagem;
+	select data_envio, (cpf_remetente*codigo) as cpf_mult_cod from mensagem;
+	
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
-
+	select cpf_usuario as "cpf", numero_oab as "oab" from profissional_juridico pj;
+	select cpf_usuario as "cpf", ctps as "carteira_de_trabalho" from auxiliado;
+	select codigo_solicitacao as "cod_solicitacao", data_envio from mensagem;
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
+    	
+	select * from usuario where nome ilike 'e%';
+	select * from usuario where nome ilike '%a';
+	select * from solicitacao where estado_atual ilike 'a%';
+	select * from mensagem where texto ilike '%a_';
+	select * from usuario where senha like '%7';
+	
     b) Criar uma consulta para cada tipo de função data apresentada.
-
+	select codigo, current_date - (data_envio) as "tempo_envio" from mensagem;
+	select codigo, current_date - (data_abertura) as "tempo_abertura" from solicitacao;
+	
+	
+FALTA FAZER
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
+    	delete from mensagem where codigo = 12;
+	delete from mensagem where codigo = 1 and cpf_remetente = 342353;
+	delete from mensagem where data_envio = '2021-02-28';
+	
     b) Criar minimo 3 de atualização
+    	update usuario set nome = 'LUCAS' where nome = 'Lucas';
+	alter table mensagem rename column texto to mensagem;
+	update usuario set senha = '765' where nome = 'Cleiton Rasta';
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
