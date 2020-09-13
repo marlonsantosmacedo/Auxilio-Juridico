@@ -162,9 +162,9 @@ CREATE TABLE MENSAGEM (
 ```
 a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
 ```
+
 ```sql
 /* Todas as mensagens enviadas por auxiliados e o nome do remetente e do destinatário, ordenadas por data de envio (crescente): */
-
 SELECT mensagem.texto, usuario_auxiliado.nome AS remetente, usuario_profissional.nome AS destinatario
 	FROM usuario AS usuario_auxiliado
 	INNER JOIN auxiliado ON auxiliado.cpf_usuario = usuario_auxiliado.cpf
@@ -174,12 +174,13 @@ SELECT mensagem.texto, usuario_auxiliado.nome AS remetente, usuario_profissional
 	INNER JOIN usuario AS usuario_profissional ON usuario_profissional.cpf = profissional_juridico.cpf_usuario
 	ORDER BY mensagem.data_envio ASC;
 ```
+
 ```
 b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 ```
+
 ```sql
 /* Todas as mensagens em uma solicitação, ordenadas por data de envio (decrescente): */
-
 SELECT mensagem.*
 	FROM mensagem
 	INNER JOIN solicitacao ON solicitacao.codigo = mensagem.codigo_solicitacao
@@ -187,7 +188,6 @@ SELECT mensagem.*
 	ORDER BY mensagem.data_envio DESC;
 
 /* Solicitações em aberto e o nome do auxiliado, ordenadas por data de abertura (decrescente): */
-
 SELECT usuario.nome AS auxiliado, solicitacao.*
 	FROM usuario
 	INNER JOIN solicitacao ON solicitacao.cpf_auxiliado = usuario.cpf
@@ -195,7 +195,6 @@ SELECT usuario.nome AS auxiliado, solicitacao.*
 	ORDER BY solicitacao.data_abertura DESC;
 
 /* Todas as mensagens enviadas por um usuário específico, ordenadas por data de envio (crescente): */
-
 SELECT mensagem.*
 	FROM mensagem
 	INNER JOIN usuario ON usuario.cpf = mensagem.cpf_remetente
@@ -203,7 +202,6 @@ SELECT mensagem.*
 	ORDER BY mensagem.data_envio ASC;
 
 /* Todas as solicitações atendidas por um profissional específico junto de seu registro na OAB, ordenadas por data de abertura (decrescente): */
-
 SELECT profissional_juridico.numero_oab, solicitacao.*
 	FROM solicitacao
 	INNER JOIN profissional_juridico ON profissional_juridico.cpf_usuario = solicitacao.cpf_profissional
@@ -211,7 +209,6 @@ SELECT profissional_juridico.numero_oab, solicitacao.*
 	ORDER BY solicitacao.data_abertura DESC;
 
 /* Todas as solicitações criadas por um usuário específico e a quantidade de mensagens nelas, por data de abertura (crescente): */
-
 SELECT solicitacao.*, COUNT(mensagem.*) AS mensagens
 	FROM solicitacao
 	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
@@ -224,16 +221,15 @@ SELECT solicitacao.*, COUNT(mensagem.*) AS mensagens
 ```
 a) Criar minimo 2 envolvendo algum tipo de junção
 ```
+
 ```sql
 /* Todas as solicitações e a quantidade de mensagens nelas: */
-
 SELECT solicitacao.*, COUNT(mensagem.*) AS mensagens
 	FROM solicitacao
 	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
 	GROUP BY solicitacao.codigo;
 	
 /* Nome e número da OAB de todos os profissionais e o número de solicitações atendidas por eles: */
-
 SELECT usuario.nome, profissional_juridico.numero_oab, COUNT(solicitacao.*) AS solicitacoes
 	FROM profissional_juridico
 	INNER JOIN usuario ON usuario.cpf = profissional_juridico.cpf_usuario
@@ -260,7 +256,6 @@ SELECT mensagem.data_envio::date, COUNT(mensagem.*)
 SELECT EXTRACT(YEAR FROM solicitacao.data_abertura) AS ano, EXTRACT(MONTH FROM solicitacao.data_abertura) AS mes, COUNT(solicitacao.*)
 	FROM solicitacao
 	GROUP BY EXTRACT(YEAR FROM solicitacao.data_abertura), EXTRACT(MONTH FROM solicitacao.data_abertura);
-
 ```
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
@@ -274,8 +269,65 @@ SELECT EXTRACT(YEAR FROM solicitacao.data_abertura) AS ano, EXTRACT(MONTH FROM s
 	select usuario.nome as "profissional", solicitacao.codigo, solicitacao.estado_atual as "caso", solicitacao.data_abertura from usuario full outer join solicitacao on 			(usuario.cpf = solicitacao.cpf_profissional) where solicitacao.codigo is not null;
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-        a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
-        b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+```
+a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
+```
+
+```
+Não é possível fazer self-join na base de dados do Auxílio Jurídico pois não há nenhum autorelacionamento.
+```
+
+```
+b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+```
+
+```sql
+/* Solicitações disponíveis para serem atendidas e nome do auxiliado, ordenadas por data de abertura (decrescente): */
+CREATE VIEW solicitacoes_disponiveis AS
+	SELECT usuario.nome AS auxiliado, solicitacao.*
+	FROM usuario
+	INNER JOIN solicitacao ON solicitacao.cpf_auxiliado = usuario.cpf
+	WHERE solicitacao.cpf_profissional IS NULL AND solicitacao.estado_atual = 'ABERTO'
+	ORDER BY solicitacao.data_abertura DESC;
+	
+/* Solicitações e dados da última mensagem enviada em cada uma delas: */
+CREATE VIEW conversas AS
+	SELECT *
+	FROM solicitacao
+	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
+	WHERE mensagem.codigo IN (
+		SELECT MAX(codigo)
+			FROM mensagem
+			GROUP BY codigo_solicitacao
+	);
+	
+/* Auxiliados e seus dados de usuário (para login etc.): */
+CREATE VIEW usuario_auxiliado AS
+	SELECT *
+	FROM auxiliado
+	LEFT JOIN usuario ON usuario.cpf = auxiliado.cpf_usuario;
+	
+	
+/* Profissionais jurídicos e seus dados de usuário (para login etc.): */
+CREATE VIEW usuario_profissional AS
+	SELECT *
+	FROM profissional_juridico
+	LEFT JOIN usuario ON usuario.cpf = profissional_juridico.cpf_usuario;
+	
+/* Solicitações e dados dos profissionais que as atenderam: */
+CREATE VIEW solicitacao_profissional AS
+	SELECT solicitacao.*, profissional_juridico.numero_oab, usuario.nome AS nome_profissional
+	FROM solicitacao
+	LEFT JOIN profissional_juridico ON profissional_juridico.cpf_usuario = solicitacao.cpf_profissional
+	LEFT JOIN usuario ON usuario.cpf = profissional_juridico.cpf_usuario;
+	
+/* Solicitações e nome e CPF dos auxiliados que as criaram: */
+CREATE VIEW solicitacao_auxiliado AS
+	SELECT solicitacao.*, usuario.nome AS nome_auxiliado
+	FROM solicitacao
+	LEFT JOIN usuario ON usuario.cpf = solicitacao.cpf_auxiliado;
+```
+
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
