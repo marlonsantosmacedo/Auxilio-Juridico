@@ -111,7 +111,7 @@ CREATE TABLE MENSAGEM (
 	SELECT * FROM usuario where not nome = 'Lucas' and cpf > 20000;
 	
     b) Criar no mínimo 3 consultas com operadores aritméticos 
-    	select codigo, (cpf_auxiliado - cpf_profissional) as cpf_subitraido from solicitacao;
+    	select codigo, (cpf_auxiliado - cpf_profissional) as cpf_subtraido from solicitacao;
 	select data_envio, (cpf_remetente/codigo_solicitacao ) as cpf_div_cod_pr from mensagem;
 	select data_envio, (cpf_remetente*codigo) as cpf_mult_cod from mensagem;
 	
