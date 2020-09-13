@@ -330,8 +330,58 @@ CREATE VIEW solicitacao_auxiliado AS
 
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
-     a) Criar minimo 1 envolvendo GROUP BY
-     b) Criar minimo 1 envolvendo algum tipo de junção
+```
+a) Criar minimo 1 envolvendo GROUP BY
+b) Criar minimo 1 envolvendo algum tipo de junção
+```
+
+```sql
+/* Solicitações e dados da última mensagem enviada em cada uma delas: */
+SELECT *
+	FROM solicitacao
+	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
+	WHERE mensagem.codigo IN (
+		SELECT MAX(codigo)
+			FROM mensagem
+			GROUP BY codigo_solicitacao
+	);
+
+/* Nome e idade dos auxiliados que estão acima da média de idade entre os auxiliados: */
+SELECT usuario.nome, DATE_PART('year', AGE(NOW(), auxiliado.data_nascimento)) as idade
+	FROM usuario
+	INNER JOIN auxiliado ON auxiliado.cpf_usuario = usuario.cpf
+	WHERE AGE(NOW(), auxiliado.data_nascimento) > (
+		SELECT AVG(AGE(NOW(), data_nascimento))
+			FROM auxiliado
+	);
+	
+/* Nome e quantidade de mensagens dos usuários que mais enviaram mensagens: */
+SELECT usuario.nome, COUNT(mensagem.*)
+	FROM usuario
+	LEFT JOIN mensagem ON mensagem.cpf_remetente = usuario.cpf
+	GROUP BY usuario.cpf
+	HAVING COUNT(mensagem.*) = (
+		SELECT COUNT(*)
+			FROM mensagem
+			GROUP BY cpf_remetente
+			ORDER BY COUNT(*) DESC
+			LIMIT 1
+	);
+
+/* Nome e quantidade de solicitações atendidas dos profissionais que mais atenderam solicitações: */
+SELECT usuario.nome, COUNT(solicitacao.*) AS solicitacoes_atendidas
+	FROM profissional_juridico
+	LEFT JOIN usuario ON usuario.cpf = profissional_juridico.cpf_usuario
+	INNER JOIN solicitacao ON solicitacao.cpf_profissional = usuario.cpf
+	GROUP BY usuario.cpf
+	HAVING COUNT(solicitacao.*) = (
+		SELECT COUNT(*)
+			FROM solicitacao
+			GROUP BY cpf_profissional
+			ORDER BY COUNT(*) DESC
+			LIMIT 1
+	);
+```
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
