@@ -186,7 +186,7 @@ SELECT mensagem.*
 	WHERE solicitacao.codigo = 1
 	ORDER BY mensagem.data_envio DESC;
 
-/* Solicitações abertas e o nome do auxiliado, ordenadas por data de abertura (decrescente): */
+/* Solicitações em aberto e o nome do auxiliado, ordenadas por data de abertura (decrescente): */
 
 SELECT usuario.nome AS auxiliado, solicitacao.*
 	FROM usuario
@@ -210,9 +210,9 @@ SELECT profissional_juridico.numero_oab, solicitacao.*
 	WHERE profissional_juridico.cpf_usuario = 1556785
 	ORDER BY solicitacao.data_abertura DESC;
 
-/* Todas as solicitações abertas por um usuário específico e a quantidade de mensagens nelas, por data de abertura (crescente): */
+/* Todas as solicitações criadas por um usuário específico e a quantidade de mensagens nelas, por data de abertura (crescente): */
 
-SELECT solicitacao.*, count(mensagem.*) AS mensagens
+SELECT solicitacao.*, COUNT(mensagem.*) AS mensagens
 	FROM solicitacao
 	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
 	WHERE solicitacao.cpf_auxiliado = 342353
@@ -221,7 +221,47 @@ SELECT solicitacao.*, count(mensagem.*) AS mensagens
 ```
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
-    a) Criar minimo 2 envolvendo algum tipo de junção
+```
+a) Criar minimo 2 envolvendo algum tipo de junção
+```
+```sql
+/* Todas as solicitações e a quantidade de mensagens nelas: */
+
+SELECT solicitacao.*, COUNT(mensagem.*) AS mensagens
+	FROM solicitacao
+	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
+	GROUP BY solicitacao.codigo;
+	
+/* Nome e número da OAB de todos os profissionais e o número de solicitações atendidas por eles: */
+
+SELECT usuario.nome, profissional_juridico.numero_oab, COUNT(solicitacao.*) AS solicitacoes
+	FROM profissional_juridico
+	INNER JOIN usuario ON usuario.cpf = profissional_juridico.cpf_usuario
+	INNER JOIN solicitacao ON solicitacao.cpf_profissional = usuario.cpf
+	GROUP BY usuario.cpf, profissional_juridico.numero_oab;
+	
+/* A quantidade de mensagens que cada usuário enviou: */
+SELECT usuario.nome, COUNT(mensagem.*)
+	FROM usuario
+	INNER JOIN mensagem ON mensagem.cpf_remetente = usuario.cpf
+	GROUP BY usuario.cpf;
+	
+/* Quantidade de auxiliados por década de nascimento: */
+SELECT EXTRACT(DECADE FROM auxiliado.data_nascimento) AS decada, COUNT(auxiliado.*) AS auxiliados
+	FROM auxiliado
+	GROUP BY EXTRACT(DECADE FROM auxiliado.data_nascimento);
+	
+/* Quantidade de mensagens enviadas por data: */
+SELECT mensagem.data_envio::date, COUNT(mensagem.*)
+	FROM mensagem
+	GROUP BY mensagem.data_envio::date;
+	
+/* Quantidade de solicitações abertas por mês e ano: */
+SELECT EXTRACT(YEAR FROM solicitacao.data_abertura) AS ano, EXTRACT(MONTH FROM solicitacao.data_abertura) AS mes, COUNT(solicitacao.*)
+	FROM solicitacao
+	GROUP BY EXTRACT(YEAR FROM solicitacao.data_abertura), EXTRACT(MONTH FROM solicitacao.data_abertura);
+
+```
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
