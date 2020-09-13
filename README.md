@@ -154,6 +154,13 @@ FALTA FAZER
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
+    select codigo_solicitacao, data_envio, solicitacao.estado_atual, solicitacao.data_abertura from mensagem right outer join solicitacao on (mensagem.codigo_solicitacao = 		solicitacao.codigo);
+
+	select usuario.nome, usuario.cpf, numero_oab from usuario left outer join profissional_juridico on (profissional_juridico.cpf_usuario = usuario.cpf) where 			profissional_juridico.numero_oab is not null;
+
+	select usuario.nome,usuario.cpf, auxiliado.ctps, auxiliado.rg, auxiliado.numero_telefone from usuario full outer join auxiliado on (usuario.cpf = auxiliado.cpf_usuario) 		where auxiliado.ctps is not null;
+
+	select usuario.nome as "profissional", solicitacao.codigo, solicitacao.estado_atual as "caso", solicitacao.data_abertura from usuario full outer join solicitacao on 			(usuario.cpf = solicitacao.cpf_profissional) where solicitacao.codigo is not null;
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
