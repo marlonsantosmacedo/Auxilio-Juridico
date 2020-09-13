@@ -159,8 +159,66 @@ CREATE TABLE MENSAGEM (
 	update usuario set senha = '765' where nome = 'Cleiton Rasta';
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
-    a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
-    b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+```
+a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
+```
+```sql
+/* Todas as mensagens enviadas por auxiliados e o nome do remetente e do destinatário, ordenadas por data de envio (crescente): */
+
+SELECT mensagem.texto, usuario_auxiliado.nome AS remetente, usuario_profissional.nome AS destinatario
+	FROM usuario AS usuario_auxiliado
+	INNER JOIN auxiliado ON auxiliado.cpf_usuario = usuario_auxiliado.cpf
+	INNER JOIN mensagem ON mensagem.cpf_remetente = auxiliado.cpf_usuario
+	INNER JOIN solicitacao ON solicitacao.codigo = mensagem.codigo_solicitacao
+	LEFT JOIN profissional_juridico ON profissional_juridico.cpf_usuario = solicitacao.cpf_profissional
+	INNER JOIN usuario AS usuario_profissional ON usuario_profissional.cpf = profissional_juridico.cpf_usuario
+	ORDER BY mensagem.data_envio ASC;
+```
+```
+b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+```
+```sql
+/* Todas as mensagens em uma solicitação, ordenadas por data de envio (decrescente): */
+
+SELECT mensagem.*
+	FROM mensagem
+	INNER JOIN solicitacao ON solicitacao.codigo = mensagem.codigo_solicitacao
+	WHERE solicitacao.codigo = 1
+	ORDER BY mensagem.data_envio DESC;
+
+/* Solicitações abertas e o nome do auxiliado, ordenadas por data de abertura (decrescente): */
+
+SELECT usuario.nome AS auxiliado, solicitacao.*
+	FROM usuario
+	INNER JOIN solicitacao ON solicitacao.cpf_auxiliado = usuario.cpf
+	WHERE solicitacao.estado_atual = 'ABERTO'
+	ORDER BY solicitacao.data_abertura DESC;
+
+/* Todas as mensagens enviadas por um usuário específico, ordenadas por data de envio (crescente): */
+
+SELECT mensagem.*
+	FROM mensagem
+	INNER JOIN usuario ON usuario.cpf = mensagem.cpf_remetente
+	WHERE usuario.cpf = 11557
+	ORDER BY mensagem.data_envio ASC;
+
+/* Todas as solicitações atendidas por um profissional específico junto de seu registro na OAB, ordenadas por data de abertura (decrescente): */
+
+SELECT profissional_juridico.numero_oab, solicitacao.*
+	FROM solicitacao
+	INNER JOIN profissional_juridico ON profissional_juridico.cpf_usuario = solicitacao.cpf_profissional
+	WHERE profissional_juridico.cpf_usuario = 1556785
+	ORDER BY solicitacao.data_abertura DESC;
+
+/* Todas as solicitações abertas por um usuário específico e a quantidade de mensagens nelas, por data de abertura (crescente): */
+
+SELECT solicitacao.*, count(mensagem.*) AS mensagens
+	FROM solicitacao
+	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
+	WHERE solicitacao.cpf_auxiliado = 342353
+	GROUP BY solicitacao.codigo
+	ORDER BY solicitacao.data_abertura ASC;
+```
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
