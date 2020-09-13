@@ -129,11 +129,24 @@ CREATE TABLE MENSAGEM (
 	select * from usuario where senha like '%7';
 	
     b) Criar uma consulta para cada tipo de função data apresentada.
+    
 	select codigo, current_date - (data_envio) as "tempo_envio" from mensagem;
+	
 	select codigo, current_date - (data_abertura) as "tempo_abertura" from solicitacao;
-	
-	
-FALTA FAZER
+
+	/*Não temos do tipo time nas tabelas*/
+
+	select now(), current_date - (data_abertura) as "tempo_abertura" from solicitacao;
+
+	select cpf_usuario,date_part('year', (age(current_date, data_nascimento))) as idade from auxiliado;
+
+	select now(), data_envio from mensagem;
+
+	select cpf_usuario, extract('month' from data_nascimento) as mes_aniversario from auxiliado;
+
+	select cpf_usuario, extract('year' from data_nascimento) as ano_nascimento from auxiliado;
+
+
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
     	delete from mensagem where codigo = 12;
