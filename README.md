@@ -156,13 +156,13 @@ b) Criar uma consulta para cada tipo de função data apresentada.
 ```
     
 ```sql
-SELECT codigo, current_date - (data_envio) AS "tempo_envio" FROM mensagem;
+SELECT codigo, current_date - (data_envio) AS tempo_envio FROM mensagem;
 
-SELECT codigo, current_date - (data_abertura) AS "tempo_abertura" FROM solicitacao;
+SELECT codigo, current_date - (data_abertura) AS tempo_abertura FROM solicitacao;
 
 /* Não temos colunas do tipo "time" nas tabelas */
 
-SELECT NOW(), current_date - (data_abertura) AS "tempo_abertura" FROM solicitacao;
+SELECT NOW(), current_date - (data_abertura) AS tempo_abertura FROM solicitacao;
 
 SELECT cpf_usuario, DATE_PART('year', (AGE(current_date, data_nascimento))) AS idade FROM auxiliado;
 
