@@ -155,7 +155,7 @@ CREATE TABLE MENSAGEM (
 	
     b) Criar minimo 3 de atualização
     	update usuario set nome = 'LUCAS' where nome = 'Lucas';
-	alter table mensagem rename column texto to mensagem;
+	update solicitacao set estado_atual = 'FECHADO' where codigo = 1;
 	update usuario set senha = '765' where nome = 'Cleiton Rasta';
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
