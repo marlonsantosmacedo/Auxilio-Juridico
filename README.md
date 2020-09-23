@@ -139,43 +139,61 @@ SELECT codigo_solicitacao AS cod_solicitacao, data_envio FROM mensagem;
 ```
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-    a) Criar outras 5 consultas que envolvam like ou ilike
-    	
-	select * from usuario where nome ilike 'e%';
-	select * from usuario where nome ilike '%a';
-	select * from solicitacao where estado_atual ilike 'a%';
-	select * from mensagem where texto ilike '%a_';
-	select * from usuario where senha like '%7';
-	
-    b) Criar uma consulta para cada tipo de função data apresentada.
+```
+a) Criar outras 5 consultas que envolvam like ou ilike
+```
+
+```sql 	
+SELECT * FROM usuario WHERE nome ILIKE 'e%';
+SELECT * FROM usuario WHERE nome ILIKE '%a';
+SELECT * FROM solicitacao WHERE estado_atual ILIKE 'a%';
+SELECT * FROM mensagem WHERE texto ILIKE '%a_';
+SELECT * FROM usuario WHERE senha LIKE '%7';
+```
+
+```
+b) Criar uma consulta para cada tipo de função data apresentada.
+```
     
-	select codigo, current_date - (data_envio) as "tempo_envio" from mensagem;
-	
-	select codigo, current_date - (data_abertura) as "tempo_abertura" from solicitacao;
+```sql
+SELECT codigo, current_date - (data_envio) AS "tempo_envio" FROM mensagem;
 
-	/*Não temos do tipo time nas tabelas*/
+SELECT codigo, current_date - (data_abertura) AS "tempo_abertura" FROM solicitacao;
 
-	select now(), current_date - (data_abertura) as "tempo_abertura" from solicitacao;
+/* Não temos colunas do tipo "time" nas tabelas */
 
-	select cpf_usuario,date_part('year', (age(current_date, data_nascimento))) as idade from auxiliado;
+SELECT NOW(), current_date - (data_abertura) AS "tempo_abertura" FROM solicitacao;
 
-	select now(), data_envio from mensagem;
+SELECT cpf_usuario, DATE_PART('year', (AGE(current_date, data_nascimento))) AS idade FROM auxiliado;
 
-	select cpf_usuario, extract('month' from data_nascimento) as mes_aniversario from auxiliado;
+SELECT NOW(), data_envio FROM mensagem;
 
-	select cpf_usuario, extract('year' from data_nascimento) as ano_nascimento from auxiliado;
+SELECT cpf_usuario, EXTRACT('month' FROM data_nascimento) AS mes_aniversario FROM auxiliado;
+
+SELECT cpf_usuario, EXTRACT('year' FROM data_nascimento) AS ano_nascimento FROM auxiliado;
+```
 
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
-    a) Criar minimo 3 de exclusão
-    	delete from mensagem where codigo = 12;
-	delete from mensagem where codigo = 1 and cpf_remetente = 342353;
-	delete from mensagem where data_envio = '2021-02-28';
-	
-    b) Criar minimo 3 de atualização
-    	update usuario set nome = 'LUCAS' where nome = 'Lucas';
-	update solicitacao set estado_atual = 'FECHADO' where codigo = 1;
-	update usuario set senha = '765' where nome = 'Cleiton Rasta';
+```
+a) Criar minimo 3 de exclusão
+```
+
+```sql
+DELETE FROM mensagem WHERE codigo = 12;
+DELETE FROM mensagem WHERE codigo = 1 AND cpf_remetente = 342353;
+DELETE FROM mensagem WHERE data_envio = '2021-02-28';
+```
+
+```
+b) Criar minimo 3 de atualização
+```
+
+```sql
+UPDATE usuario SET nome = 'LUCAS' WHERE nome = 'Lucas';
+UPDATE solicitacao SET estado_atual = 'FECHADO' WHERE codigo = 1;
+UPDATE usuario SET senha = '765' WHERE nome = 'Cleiton Rasta';
+```
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
 ```
@@ -278,14 +296,30 @@ SELECT EXTRACT(YEAR FROM solicitacao.data_abertura) AS ano, EXTRACT(MONTH FROM s
 ```
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-    a) Criar minimo 1 de cada tipo
-    select codigo_solicitacao, data_envio, solicitacao.estado_atual, solicitacao.data_abertura from mensagem right outer join solicitacao on (mensagem.codigo_solicitacao = 		solicitacao.codigo);
+```
+a) Criar minimo 1 de cada tipo
+```
 
-	select usuario.nome, usuario.cpf, numero_oab from usuario left outer join profissional_juridico on (profissional_juridico.cpf_usuario = usuario.cpf) where 			profissional_juridico.numero_oab is not null;
+```sql
+SELECT codigo_solicitacao, data_envio, solicitacao.estado_atual, solicitacao.data_abertura
+	FROM mensagem
+	RIGHT OUTER JOIN solicitacao ON (mensagem.codigo_solicitacao = solicitacao.codigo);
 
-	select usuario.nome,usuario.cpf, auxiliado.ctps, auxiliado.rg, auxiliado.numero_telefone from usuario full outer join auxiliado on (usuario.cpf = auxiliado.cpf_usuario) 		where auxiliado.ctps is not null;
+SELECT usuario.nome, usuario.cpf, numero_oab
+	FROM usuario
+	LEFT OUTER JOIN profissional_juridico ON (profissional_juridico.cpf_usuario = usuario.cpf)
+	WHERE profissional_juridico.numero_oab IS NOT NULL;
 
-	select usuario.nome as "profissional", solicitacao.codigo, solicitacao.estado_atual as "caso", solicitacao.data_abertura from usuario full outer join solicitacao on 			(usuario.cpf = solicitacao.cpf_profissional) where solicitacao.codigo is not null;
+SELECT usuario.nome,usuario.cpf, auxiliado.ctps, auxiliado.rg, auxiliado.numero_telefone
+	FROM usuario
+	FULL OUTER JOIN auxiliado ON (usuario.cpf = auxiliado.cpf_usuario)
+	WHERE auxiliado.ctps IS NOT NULL;
+
+SELECT usuario.nome AS profissional, solicitacao.codigo, solicitacao.estado_atual AS caso, solicitacao.data_abertura
+	FROM usuario
+	FULL OUTER JOIN solicitacao ON (usuario.cpf = solicitacao.cpf_profissional)
+	WHERE solicitacao.codigo IS NOT NULL;
+```
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 ```
@@ -293,7 +327,7 @@ a) Uma junção que envolva Self Join (caso não ocorra na base justificar e sub
 ```
 
 ```
-Não é possível fazer self-join na base de dados do Auxílio Jurídico pois não há nenhum autorelacionamento.
+Não é possível fazer self-join na base de dados do Auxílio Jurídico pois não há nenhum auto-relacionamento.
 ```
 
 ```
@@ -459,5 +493,4 @@ http://www.sis4.com/brModelo/download.html
 
 Link para curso de GIT<br>
 ![https://www.youtube.com/curso_git](https://www.youtube.com/playlist?list=PLo7sFyCeiGUdIyEmHdfbuD2eR4XPDqnN2?raw=true "Title")
-
 
