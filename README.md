@@ -50,39 +50,39 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 
 ### 7	MODELO FÍSICO<br>
 ```sql
-CREATE TABLE USUARIO (
+CREATE TABLE usuario (
 	nome varchar(60),
 	cpf bigint PRIMARY KEY,
 	senha varchar(30)
 );
 
-CREATE TABLE PROFISSIONAL_JURIDICO (
-	cpf_usuario bigint REFERENCES USUARIO(cpf) PRIMARY KEY,
+CREATE TABLE profissional_juridico (
+	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
 	numero_oab bigint
 );
 
-CREATE TABLE AUXILIADO (
-	cpf_usuario bigint REFERENCES USUARIO(cpf) PRIMARY KEY,
+CREATE TABLE auxiliado (
+	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
 	ctps bigint,
 	rg bigint,
 	numero_telefone int,
 	data_nascimento date
 );
 
-CREATE TABLE SOLICITACAO (
+CREATE TABLE solicitacao (
 	codigo serial PRIMARY KEY,
 	estado_atual varchar(100),
 	data_abertura date,
-	cpf_auxiliado bigint REFERENCES AUXILIADO(cpf_usuario),
-	cpf_profissional bigint REFERENCES PROFISSIONAL_JURIDICO(cpf_usuario)
+	cpf_auxiliado bigint REFERENCES auxiliado(cpf_usuario),
+	cpf_profissional bigint REFERENCES profissional_juridico(cpf_usuario)
 );
 
-CREATE TABLE MENSAGEM (
+CREATE TABLE mensagem (
 	codigo serial PRIMARY KEY,
-	codigo_solicitacao serial REFERENCES SOLICITACAO(codigo),
+	codigo_solicitacao serial REFERENCES solicitacao(codigo),
 	texto varchar(255),
 	data_envio timestamp,
-	cpf_remetente bigint REFERENCES USUARIO(cpf)
+	cpf_remetente bigint REFERENCES usuario(cpf)
 );
 ```
         
@@ -345,7 +345,7 @@ CREATE VIEW solicitacoes_disponiveis AS
 	
 /* Solicitações e dados da última mensagem enviada em cada uma delas: */
 CREATE VIEW conversas AS
-	SELECT *
+	SELECT solicitacao.*, mensagem.texto AS texto_mensagem, mensagem.data_envio AS data_envio_mensagem, mensagem.cpf_remetente AS remetente_mensagem
 	FROM solicitacao
 	INNER JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
 	WHERE mensagem.codigo IN (
