@@ -1,52 +1,51 @@
 /* Drops */
 
-DROP TABLE IF EXISTS USUARIO;
-DROP TABLE IF EXISTS PROFISSIONAL_JURIDICO;
-DROP TABLE IF EXISTS AUXILIADO;
-DROP TABLE IF EXISTS SOLICITACAO;
-DROP TABLE IF EXISTS MENSAGEM;
+DROP TABLE IF EXISTS usuario CASCADE;
+DROP TABLE IF EXISTS profissional_juridico CASCADE;
+DROP TABLE IF EXISTS auxiliado CASCADE;
+DROP TABLE IF EXISTS solicitacao CASCADE;
+DROP TABLE IF EXISTS mensagem CASCADE;
 
 /* Creates */
 
-CREATE TABLE USUARIO (
+CREATE TABLE usuario (
 	nome varchar(60),
 	cpf bigint PRIMARY KEY,
 	senha varchar(30)
 );
 
-
-CREATE TABLE PROFISSIONAL_JURIDICO (
-	cpf_usuario bigint REFERENCES USUARIO(cpf) PRIMARY KEY,
+CREATE TABLE profissional_juridico (
+	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
 	numero_oab bigint
 );
 
-CREATE TABLE AUXILIADO (
-	cpf_usuario bigint REFERENCES USUARIO(cpf) PRIMARY KEY,
+CREATE TABLE auxiliado (
+	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
 	ctps bigint,
 	rg bigint,
 	numero_telefone int,
 	data_nascimento date
 );
 
-CREATE TABLE SOLICITACAO (
+CREATE TABLE solicitacao (
 	codigo serial PRIMARY KEY,
 	estado_atual varchar(100),
 	data_abertura date,
-	cpf_auxiliado bigint REFERENCES AUXILIADO(cpf_usuario),
-	cpf_profissional bigint REFERENCES PROFISSIONAL_JURIDICO(cpf_usuario)
+	cpf_auxiliado bigint REFERENCES auxiliado(cpf_usuario),
+	cpf_profissional bigint REFERENCES profissional_juridico(cpf_usuario)
 );
 
-CREATE TABLE MENSAGEM (
+CREATE TABLE mensagem (
 	codigo serial PRIMARY KEY,
-	codigo_solicitacao serial REFERENCES SOLICITACAO(codigo),
+	codigo_solicitacao serial REFERENCES solicitacao(codigo),
 	texto varchar(255),
 	data_envio timestamp,
-	cpf_remetente bigint REFERENCES USUARIO(cpf)
+	cpf_remetente bigint REFERENCES usuario(cpf)
 );
 
 /* Inserts */
 
-INSERT INTO USUARIO (
+INSERT INTO usuario (
 	nome,
 	cpf,
 	senha
@@ -76,7 +75,7 @@ INSERT INTO USUARIO (
 	'tchola'
 );
 
-INSERT INTO AUXILIADO (
+INSERT INTO auxiliado (
 	cpf_usuario,
 	ctps,
 	rg,
@@ -108,7 +107,7 @@ INSERT INTO AUXILIADO (
 	'1979-02-19'
 );
 
-INSERT INTO PROFISSIONAL_JURIDICO (
+INSERT INTO profissional_juridico (
 	cpf_usuario,
 	numero_oab
 ) values (
@@ -119,7 +118,7 @@ INSERT INTO PROFISSIONAL_JURIDICO (
 	6534
 );
 
-INSERT INTO SOLICITACAO (
+INSERT INTO solicitacao (
 	estado_atual,
 	data_abertura,
 	cpf_auxiliado,
@@ -141,7 +140,7 @@ INSERT INTO SOLICITACAO (
 	1556785
 );
 
-INSERT INTO MENSAGEM (
+INSERT INTO mensagem (
 	codigo_solicitacao,
 	texto,
 	data_envio,
