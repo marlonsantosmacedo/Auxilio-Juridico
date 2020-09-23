@@ -98,27 +98,46 @@ CREATE TABLE MENSAGEM (
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
-	SELECT * FROM usuario where nome = 'Emanuel';
-	SELECT * FROM profissional_juridico where numero_oab = 5667;
-	SELECT * FROM mensagem where codigo < 9;
-	SELECT * FROM solicitacao where estado_atual = 'FECHADO';
+```sql
+SELECT * FROM usuario WHERE nome = 'Emanuel';
+SELECT * FROM profissional_juridico WHERE numero_oab = 5667;
+SELECT * FROM mensagem WHERE codigo < 9;
+SELECT * FROM solicitacao WHERE estado_atual = 'FECHADO';
+```
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-    a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
-    	SELECT * FROM solicitacao where estado_atual = 'ABERTO' and data_abertura > '2021-02-21';
-	SELECT * FROM solicitacao where estado_atual = 'ABERTO' or data_abertura > '2021-01-12';
-	SELECT * FROM mensagem where not codigo_solicitacao = 1 ;
-	SELECT * FROM mensagem where codigo != 5 and codigo_solicitacao !=2;
-	SELECT * FROM usuario where not nome = 'Lucas' and cpf > 20000;
-	
-    b) Criar no mínimo 3 consultas com operadores aritméticos 
-    	select codigo, (cpf_auxiliado - cpf_profissional) as cpf_subtraido from solicitacao;
-	select data_envio, (cpf_remetente/codigo_solicitacao ) as cpf_div_cod_pr from mensagem;
-	select data_envio, (cpf_remetente*codigo) as cpf_mult_cod from mensagem;
-	
-    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
-	select cpf_usuario as "cpf", numero_oab as "oab" from profissional_juridico pj;
-	select cpf_usuario as "cpf", ctps as "carteira_de_trabalho" from auxiliado;
-	select codigo_solicitacao as "cod_solicitacao", data_envio from mensagem;
+```
+a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
+```
+
+```sql
+SELECT * FROM solicitacao WHERE estado_atual = 'ABERTO' AND data_abertura > '2021-02-21';
+SELECT * FROM solicitacao WHERE estado_atual = 'ABERTO' OR data_abertura > '2021-01-12';
+SELECT * FROM mensagem WHERE NOT codigo_solicitacao = 1 ;
+SELECT * FROM mensagem WHERE codigo != 5 AND codigo_solicitacao !=2;
+SELECT * FROM usuario WHERE NOT nome = 'Lucas' AND cpf > 20000;
+```
+
+```
+b) Criar no mínimo 3 consultas com operadores aritméticos 
+```
+
+```sql
+SELECT codigo, (cpf_auxiliado - cpf_profissional) AS cpf_subtraido FROM solicitacao;
+SELECT data_envio, (cpf_remetente / codigo_solicitacao) AS cpf_div_cod_pr FROM mensagem;
+SELECT data_envio, (cpf_remetente * codigo) AS cpf_mult_cod FROM mensagem;
+```
+
+```
+c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+```
+
+```sql
+SELECT cpf_usuario AS cpf, numero_oab AS oab FROM profissional_juridico;
+SELECT cpf_usuario AS cpf, ctps AS carteira_de_trabalho FROM auxiliado;
+SELECT codigo_solicitacao AS cod_solicitacao, data_envio FROM mensagem;
+```
+
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     	
