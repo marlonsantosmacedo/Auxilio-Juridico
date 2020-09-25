@@ -43,6 +43,64 @@ CREATE TABLE mensagem (
 	cpf_remetente bigint REFERENCES usuario(cpf)
 );
 
+CREATE VIEW visao_geral AS (
+	SELECT
+		usuario.nome AS usuario_nome,
+		usuario.cpf AS usuario_cpf,
+		usuario.senha AS usuario_senha,
+		auxiliado.cpf_usuario AS auxiliado_cpf_usuario,
+		auxiliado.ctps AS auxiliado_ctps,
+		auxiliado.rg AS auxiliado_rg,
+		auxiliado.numero_telefone AS auxiliado_numero_telefone,
+		auxiliado.data_nascimento AS auxiliado_data_nascimento,
+		profissional_juridico.cpf_usuario AS profissional_cpf_usuario,
+		profissional_juridico.numero_oab AS profissional_numero_oab,
+		solicitacao.codigo AS solicitacao_codigo,
+		solicitacao.estado_atual AS solicitacao_estado_atual,
+		solicitacao.data_abertura AS solicitacao_data_abertura,
+		solicitacao.cpf_auxiliado AS solicitacao_cpf_auxiliado,
+		solicitacao.cpf_profissional AS solicitacao_cpf_profissional,
+		mensagem.codigo AS mensagem_codigo,
+		mensagem.codigo_solicitacao AS mensagem_codigo_solicitacao,
+		mensagem.texto AS mensagem_texto,
+		mensagem.data_envio AS mensagem_data_envio,
+		mensagem.cpf_remetente AS mensagem_cpf_remetente
+		FROM usuario
+		RIGHT JOIN auxiliado ON auxiliado.cpf_usuario = usuario.cpf
+		LEFT JOIN profissional_juridico ON profissional_juridico.cpf_usuario = auxiliado.cpf_usuario
+		LEFT JOIN solicitacao ON solicitacao.cpf_auxiliado = auxiliado.cpf_usuario
+		LEFT JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
+		WHERE mensagem.cpf_remetente = solicitacao.cpf_auxiliado
+) UNION ALL (
+	SELECT
+		usuario.nome AS usuario_nome,
+		usuario.cpf AS usuario_cpf,
+		usuario.senha AS usuario_senha,
+		auxiliado.cpf_usuario AS auxiliado_cpf_usuario,
+		auxiliado.ctps AS auxiliado_ctps,
+		auxiliado.rg AS auxiliado_rg,
+		auxiliado.numero_telefone AS auxiliado_numero_telefone,
+		auxiliado.data_nascimento AS auxiliado_data_nascimento,
+		profissional_juridico.cpf_usuario AS profissional_cpf_usuario,
+		profissional_juridico.numero_oab AS profissional_numero_oab,
+		solicitacao.codigo AS solicitacao_codigo,
+		solicitacao.estado_atual AS solicitacao_estado_atual,
+		solicitacao.data_abertura AS solicitacao_data_abertura,
+		solicitacao.cpf_auxiliado AS solicitacao_cpf_auxiliado,
+		solicitacao.cpf_profissional AS solicitacao_cpf_profissional,
+		mensagem.codigo AS mensagem_codigo,
+		mensagem.codigo_solicitacao AS mensagem_codigo_solicitacao,
+		mensagem.texto AS mensagem_texto,
+		mensagem.data_envio AS mensagem_data_envio,
+		mensagem.cpf_remetente AS mensagem_cpf_remetente
+		FROM usuario
+		LEFT JOIN auxiliado ON auxiliado.cpf_usuario = usuario.cpf
+		RIGHT JOIN profissional_juridico ON profissional_juridico.cpf_usuario = usuario.cpf
+		LEFT JOIN solicitacao ON solicitacao.cpf_profissional = profissional_juridico.cpf_usuario
+		LEFT JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
+		WHERE mensagem.cpf_remetente != solicitacao.cpf_auxiliado
+);
+
 /* Inserts */
 
 INSERT INTO usuario (
