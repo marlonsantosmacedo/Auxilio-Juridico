@@ -71,7 +71,7 @@ CREATE VIEW visao_geral AS (
 		LEFT JOIN profissional_juridico ON profissional_juridico.cpf_usuario = auxiliado.cpf_usuario
 		LEFT JOIN solicitacao ON solicitacao.cpf_auxiliado = auxiliado.cpf_usuario
 		LEFT JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
-		WHERE mensagem.cpf_remetente = solicitacao.cpf_auxiliado
+		WHERE mensagem.cpf_remetente = solicitacao.cpf_auxiliado OR mensagem.codigo IS NULL
 ) UNION ALL (
 	SELECT
 		usuario.nome AS usuario_nome,
@@ -99,8 +99,8 @@ CREATE VIEW visao_geral AS (
 		RIGHT JOIN profissional_juridico ON profissional_juridico.cpf_usuario = usuario.cpf
 		LEFT JOIN solicitacao ON solicitacao.cpf_profissional = profissional_juridico.cpf_usuario
 		LEFT JOIN mensagem ON mensagem.codigo_solicitacao = solicitacao.codigo
-		WHERE mensagem.cpf_remetente != solicitacao.cpf_auxiliado
-);
+		WHERE mensagem.cpf_remetente != solicitacao.cpf_auxiliado OR mensagem.codigo IS NULL
+) ORDER BY usuario_cpf;
 
 /* Inserts */
 
