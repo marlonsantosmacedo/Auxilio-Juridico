@@ -73,6 +73,38 @@ INSERT INTO usuario (
 	'Lucas',
 	11223,
 	'tchola'
+), (
+	'Ruth',
+	28347,
+	'dri'
+), (
+	'Bruno',
+	48903,
+	'ninn'
+), (
+	'Leonardo',
+	78923,
+	'jack'
+), (
+	'Paloma',
+	93483,
+	'99037'
+), (
+	'Daniela',
+	93846,
+	'hbby'
+), (
+	'May',
+	94582,
+	'889236'
+), (
+	'George',
+	67384,
+	'hhype'
+), (
+	'Larissa',
+	78374,
+	'uleka'
 );
 
 INSERT INTO auxiliado (
@@ -98,13 +130,43 @@ INSERT INTO auxiliado (
 	3578549,
 	8752566,
 	9752664,
-	'1991-08-30'
+	'1999-08-30'
 ), (
 	11223,
 	4587845,
 	2458789,
 	9365654,
-	'1979-02-19'
+	'1998-02-19'
+), (
+	48903,
+	1231445,
+	4535636,
+	97522342,
+	'1990-05-30'
+), (
+	78923,
+	3578549,
+	8752566,
+	9752664,
+	'1991-08-30'
+), (
+	93483,
+	3578549,
+	8752566,
+	9752664,
+	'1991-08-30'
+), (
+	94582,
+	3578549,
+	8752566,
+	9752664,
+	'1991-08-30'
+), (
+	78374,
+	3578549,
+	8752566,
+	9752664,
+	'1991-08-30'
 );
 
 INSERT INTO profissional_juridico (
@@ -116,6 +178,15 @@ INSERT INTO profissional_juridico (
 ), (
 	12312,
 	6534
+), (
+	28347,
+	3456
+), (
+	93846,
+	9874
+), (
+	67384,
+	4859
 );
 
 INSERT INTO solicitacao (
@@ -125,19 +196,49 @@ INSERT INTO solicitacao (
 	cpf_profissional
 ) VALUES (
 	'ABERTO',
-	'2021-02-21',
+	'2020-03-01',
 	342353,
 	1556785
 ), (
 	'ABERTO',
-	'2021-02-28',
+	'2020-03-02',
 	11223,
 	12312
 ), (
 	'FECHADO',
-	'2021-03-03',
+	'2020-03-03',
 	11557,
 	1556785
+), (
+	'FECHADO',
+	'2020-04-12',
+	93483,
+	67384
+), (
+	'FECHADO',
+	'2020-04-15',
+	94582,
+	28347
+), (
+	'ABERTO',
+	'2020-05-04',
+	48903,
+	28347
+), (
+	'FECHADO',
+	'2020-06-15',
+	78923,
+	67384
+), (
+	'FECHADO',
+	'2020-06-17',
+	78374,
+	93846
+), (
+	'ABERTO',
+	'2020-07-11',
+	78374,
+	NULL
 );
 
 INSERT INTO mensagem (
@@ -148,76 +249,236 @@ INSERT INTO mensagem (
 ) VALUES (
 	1,
 	'Tenho dívidas pendentes como cheque especial e outros débitos.',
-	'2021-02-21 09:31:23',
+	'2020-03-01 09:31:23',
 	342353
 ), (
 	1,
 	'Esses débitos serão automaticamente cobrados quando o auxílio for depositado?',
-	'2021-02-21 09:31:45',
+	'2020-03-01 09:31:45',
 	342353
 ), (
 	1,
 	'Não.',
-	'2021-02-21 11:49:49',
+	'2020-03-01 11:49:49',
 	1556785
 ), (
 	1,
 	'O valor do auxílio não será usado para amortizar débitos anteriores.',
-	'2021-02-21 11:50:06',
+	'2020-03-01 11:50:06',
 	1556785
 ), (
 	1,
 	'Ele ficará blindado em sua conta.',
-	'2021-02-21 11:50:34',
+	'2020-03-01 11:50:34',
 	1556785
 ), (
 	1,
 	'Trata-se de um auxílio emergencial para ajudar no sustento das famílias nesse período de excepcionalidade',
-	'2021-02-21 11:51:09',
+	'2020-03-01 11:51:09',
 	1556785
 ), (
 	2,
 	'Recebo pensão por morte do INSS. Não tenho outra renda, sou diarista e pago aluguel.',
-	'2021-02-28 15:27:20',
+	'2020-03-02 15:27:20',
 	11223
 ), (
 	2,
 	'Tenho direito ao benefício do auxílio emergencial?',
-	'2021-02-28 15:27:36',
+	'2020-03-02 15:27:36',
 	11223
 ), (
 	2,
 	'Não.',
-	'2021-03-01 10:19:58',
+	'2020-03-02 10:19:58',
 	12312
 ), (
 	2,
 	'Os titulares de benefício da Previdência Social não podem receber o auxílio emergencial.',
-	'2021-03-01 10:20:18',
+	'2020-03-02 10:20:18',
 	12312
 ), (
 	2,
 	'Mesmo que preencham todas as outras condições para isso.',
-	'2021-03-01 10:20:32',
+	'2020-03-02 10:20:32',
 	12312
 ), (
 	3,
 	'Meu marido é aposentado, mas eu não sou.',
-	'2021-03-03 21:18:25',
+	'2020-03-03 21:18:25',
 	11557
 ), (
 	3,
 	'Estou desempregada.',
-	'2021-03-03 21:18:36',
+	'2020-03-03 21:18:36',
 	11557
 ), (
 	3,
 	'Posso pedir o auxílio emergencial?',
-	'2021-03-03 21:18:54',
+	'2020-03-03 21:18:54',
 	11557
 ), (
 	3,
 	'Sim, se cumprir as condições.',
-	'2021-03-04 09:11:02',
+	'2020-03-04 09:11:02',
 	1556785
+), (
+	4,
+	'Fui tentar o auxílio e sigo todos os pré requisitos, mas da erro na RAIS.',
+	'2020-04-12 09:11:02',
+	48903
+), (
+	4,
+	'Faz quanto tempo desde o último contrato?',
+	'2020-04-12 10:12:00',
+	28347	
+), (
+	4,
+	'Dois meses antes do auxílio, era servidor público.',
+	'2020-04-12 10:15:02',
+	48903
+), (
+	4,
+	'Pela lei a RAIS deve ser atualizada anualmente. Tente entrar em contato com a empresa ou órgão que foi contratado.',
+	'2020-04-12 10:22:00',
+	28347	
+), (
+	4,
+	'Liguei para o setor de rh e não consegui resolver.',
+	'2020-04-12 15:11:02',
+	48903
+), (
+	4,
+	'Nesse caso um processo será necessário.',
+	'2020-04-12 15:22:00',
+	28347	
+), (
+	4,
+	'Como devo proceder nesse período de pandemia?',
+	'2020-04-12 15:31:02',
+	48903
+), (
+	4,
+	'Entre em contato com a defensoria pública, através do email def@estado.com. E mande as cópias de seus documentos.',
+	'2020-04-12 15:42:00',
+	28347	
+), (
+	4,
+	'Entrarei em contato.',
+	'2020-04-12 16:00:02',
+	48903
+), (
+	5,
+	'Não entendo, me encaixo em todos os requisitos para o auxílio e o mesmo foi negado.',
+	'2020-04-15 11:11:02',
+	78923
+), (
+	5,
+	'Qual a renda familiar bruta?',
+	'2020-04-15 11:21:04',
+	67384
+), (
+	5,
+	'Como assim?',
+	'2020-04-15 11:25:11',
+	78923
+), (
+	5,
+	'Somando a renda de todos que trabalham de carteira assinada ou recebe algum auxílio.',
+	'2020-04-15 11:29:04',
+	67384
+), (
+	5,
+	'Só minha esposa trabalha, a renda é de R$3,500.',
+	'2020-04-15 11:33:14',
+	78923
+), (
+	5,
+	'No seu caso a renda mensal é maior que a necessária para o auxílio.',
+	'2020-04-15 11:35:04',
+	67384
+), (
+	5,
+	'Ok, obrigado.',
+	'2020-04-15 11:41:02',
+	78923
+), (
+	6,
+	'Sofri um acidente mas a carteira não era assinada.',
+	'2020-05-04 08:15:02',
+	93483
+), (
+	6,
+	'E qual foi a posição da empresa?',
+	'2020-05-04 11:00:33',
+	67384
+), (
+	6,
+	'Não estão me dando uma resposta direta e estou sem receber.',
+	'2020-05-04 11:15:02',
+	93483
+), (
+	6,
+	'Tem como comprovar que estava trabalhando nesse período?',
+	'2020-05-04 11:20:33',
+	67384
+), (
+	6,
+	'Tenho alguns contracheques assinados, e algumas conversas com o chefe salvas.',
+	'2020-05-04 11:35:02',
+	93483
+), (
+	6,
+	'A senhora pode entrar com um processo contra e empresa, guarde essas provas pois serão necessárias e entre em contato com a defensoria pública.',
+	'2020-05-04 12:00:33',
+	67384
+), (
+	6,
+	'Ok, Obrigada.',
+	'2020-05-04 12:15:02',
+	93483
+), (
+	7,
+	'Meu contrato acabou e percebi que não recebi meu fgts, é normal?',
+	'2020-06-15 11:41:02',
+	94582
+), (
+	7,
+	'Não, entre em contato com a empresa. Se não chegar a um acordo denuncie.',
+	'2020-06-15 11:51:02',
+	28347
+), (
+	7,
+	'Tem mais de 5 meses que sai, ainda consigo?',
+	'2020-06-15 11:55:02',
+	94582
+), (
+	7,
+	'Pode ser solicitado mesmo até um ano depois do desligamento.',
+	'2020-06-15 11:57:02',
+	28347
+), (
+	7,
+	'Obrigado',
+	'2020-06-15 11:59:15',
+	94582
+), (
+	8,
+	'Fui aprovado mais não recebi o auxilio. Como proceder?',
+	'2020-06-17 15:06:01',
+	78374
+), (
+	8,
+	'A caixa está liberando em lotes, se foi por agora é só aguardar que já deve cair no aplicativo da Caixa.',
+	'2020-06-17 15:41:02',
+	93846
+), (
+	8,
+	'Ok',
+	'2020-06-17 16:02:11',
+	78374
+), (
+	9,
+	'Saiu outro lote e ainda não recebi, o que faço?',
+	'2020-07-11 15:16:01',
+	78374
 );
