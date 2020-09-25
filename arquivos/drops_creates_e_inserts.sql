@@ -325,142 +325,142 @@ INSERT INTO mensagem (
 	4,
 	'Fui tentar o auxílio e sigo todos os pré requisitos, mas da erro na RAIS.',
 	'2020-04-12 09:11:02',
-	48903
+	93483
 ), (
 	4,
 	'Faz quanto tempo desde o último contrato?',
 	'2020-04-12 10:12:00',
-	28347	
+	67384	
 ), (
 	4,
 	'Dois meses antes do auxílio, era servidor público.',
 	'2020-04-12 10:15:02',
-	48903
+	93483
 ), (
 	4,
 	'Pela lei a RAIS deve ser atualizada anualmente. Tente entrar em contato com a empresa ou órgão que foi contratado.',
 	'2020-04-12 10:22:00',
-	28347	
+	67384	
 ), (
 	4,
 	'Liguei para o setor de rh e não consegui resolver.',
 	'2020-04-12 15:11:02',
-	48903
+	93483
 ), (
 	4,
 	'Nesse caso um processo será necessário.',
 	'2020-04-12 15:22:00',
-	28347	
+	67384	
 ), (
 	4,
 	'Como devo proceder nesse período de pandemia?',
 	'2020-04-12 15:31:02',
-	48903
+	93483
 ), (
 	4,
 	'Entre em contato com a defensoria pública, através do email def@estado.com. E mande as cópias de seus documentos.',
 	'2020-04-12 15:42:00',
-	28347	
+	67384	
 ), (
 	4,
 	'Entrarei em contato.',
 	'2020-04-12 16:00:02',
-	48903
+	93483
 ), (
 	5,
 	'Não entendo, me encaixo em todos os requisitos para o auxílio e o mesmo foi negado.',
 	'2020-04-15 11:11:02',
-	78923
+	94582
 ), (
 	5,
 	'Qual a renda familiar bruta?',
 	'2020-04-15 11:21:04',
-	67384
+	28347
 ), (
 	5,
 	'Como assim?',
 	'2020-04-15 11:25:11',
-	78923
+	94582
 ), (
 	5,
 	'Somando a renda de todos que trabalham de carteira assinada ou recebe algum auxílio.',
 	'2020-04-15 11:29:04',
-	67384
+	28347
 ), (
 	5,
 	'Só minha esposa trabalha, a renda é de R$3,500.',
 	'2020-04-15 11:33:14',
-	78923
+	94582
 ), (
 	5,
 	'No seu caso a renda mensal é maior que a necessária para o auxílio.',
 	'2020-04-15 11:35:04',
-	67384
+	28347
 ), (
 	5,
 	'Ok, obrigado.',
 	'2020-04-15 11:41:02',
-	78923
+	94582
 ), (
 	6,
 	'Sofri um acidente mas a carteira não era assinada.',
 	'2020-05-04 08:15:02',
-	93483
+	48903
 ), (
 	6,
 	'E qual foi a posição da empresa?',
 	'2020-05-04 11:00:33',
-	67384
+	28347
 ), (
 	6,
 	'Não estão me dando uma resposta direta e estou sem receber.',
 	'2020-05-04 11:15:02',
-	93483
+	48903
 ), (
 	6,
 	'Tem como comprovar que estava trabalhando nesse período?',
 	'2020-05-04 11:20:33',
-	67384
+	28347
 ), (
 	6,
 	'Tenho alguns contracheques assinados, e algumas conversas com o chefe salvas.',
 	'2020-05-04 11:35:02',
-	93483
+	48903
 ), (
 	6,
 	'A senhora pode entrar com um processo contra e empresa, guarde essas provas pois serão necessárias e entre em contato com a defensoria pública.',
 	'2020-05-04 12:00:33',
-	67384
+	28347
 ), (
 	6,
 	'Ok, Obrigada.',
 	'2020-05-04 12:15:02',
-	93483
+	48903
 ), (
 	7,
 	'Meu contrato acabou e percebi que não recebi meu fgts, é normal?',
 	'2020-06-15 11:41:02',
-	94582
+	78923
 ), (
 	7,
 	'Não, entre em contato com a empresa. Se não chegar a um acordo denuncie.',
 	'2020-06-15 11:51:02',
-	28347
+	67384
 ), (
 	7,
 	'Tem mais de 5 meses que sai, ainda consigo?',
 	'2020-06-15 11:55:02',
-	94582
+	78923
 ), (
 	7,
 	'Pode ser solicitado mesmo até um ano depois do desligamento.',
 	'2020-06-15 11:57:02',
-	28347
+	67384
 ), (
 	7,
 	'Obrigado',
 	'2020-06-15 11:59:15',
-	94582
+	78923
 ), (
 	8,
 	'Fui aprovado mais não recebi o auxilio. Como proceder?',
