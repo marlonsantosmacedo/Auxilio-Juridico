@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS profissional_juridico CASCADE;
 DROP TABLE IF EXISTS auxiliado CASCADE;
 DROP TABLE IF EXISTS solicitacao CASCADE;
 DROP TABLE IF EXISTS mensagem CASCADE;
+DROP VIEW IF EXISTS visao_geral CASCADE;
 
 /* Creates */
 
