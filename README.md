@@ -29,7 +29,7 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 * Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true) <br>
+[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/visao_geral.xlsx?raw=true) <br>
 
 > _Obs.: Essa tabela foi obtida através da view de visão geral, cuja estrutura pode ser encontrada no arquivo [drops_creates_e_inserts.sql](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/drops_creates_e_inserts.sql?raw=true)._
     
