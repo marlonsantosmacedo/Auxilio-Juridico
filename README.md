@@ -111,10 +111,10 @@ a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
 ```
 
 ```sql
-SELECT * FROM solicitacao WHERE estado_atual = 'ABERTO' AND data_abertura > '2021-02-21';
-SELECT * FROM solicitacao WHERE estado_atual = 'ABERTO' OR data_abertura > '2021-01-12';
-SELECT * FROM mensagem WHERE NOT codigo_solicitacao = 1 ;
-SELECT * FROM mensagem WHERE codigo != 5 AND codigo_solicitacao !=2;
+SELECT * FROM solicitacao WHERE estado_atual = 'ABERTO' AND data_abertura > '2020-03-02';
+SELECT * FROM solicitacao WHERE estado_atual = 'ABERTO' OR data_abertura > '2020-06-01';
+SELECT * FROM mensagem WHERE NOT codigo_solicitacao = 1;
+SELECT * FROM mensagem WHERE codigo != 5 AND codigo_solicitacao != 2;
 SELECT * FROM usuario WHERE NOT nome = 'Lucas' AND cpf > 20000;
 ```
 
@@ -182,7 +182,7 @@ a) Criar minimo 3 de exclusão
 ```sql
 DELETE FROM mensagem WHERE codigo = 12;
 DELETE FROM mensagem WHERE codigo = 1 AND cpf_remetente = 342353;
-DELETE FROM mensagem WHERE data_envio = '2021-02-28';
+DELETE FROM mensagem WHERE data_envio = '2020-04-12 16:00:02';
 ```
 
 ```
@@ -190,7 +190,7 @@ b) Criar minimo 3 de atualização
 ```
 
 ```sql
-UPDATE usuario SET nome = 'LUCAS' WHERE nome = 'Lucas';
+UPDATE usuario SET nome = 'Lucas Neves' WHERE nome = 'Lucas';
 UPDATE solicitacao SET estado_atual = 'FECHADO' WHERE codigo = 1;
 UPDATE usuario SET senha = '765' WHERE nome = 'Cleiton Rasta';
 ```
