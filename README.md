@@ -56,17 +56,17 @@ CREATE TABLE usuario (
 	senha varchar(30)
 );
 
-CREATE TABLE profissional_juridico (
-	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
-	numero_oab bigint
-);
-
 CREATE TABLE auxiliado (
 	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
 	ctps bigint,
 	rg bigint,
 	numero_telefone int,
 	data_nascimento date
+);
+
+CREATE TABLE profissional_juridico (
+	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
+	numero_oab bigint
 );
 
 CREATE TABLE solicitacao (
