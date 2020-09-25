@@ -9,7 +9,7 @@ Lucas Neves de Oliveira: lucas.7.snow@gmail.com<br>
 Marlon Santos Macedo: wazymazy@gmail.com<br>
 
 ### 2. INTRODUÇÃO E MOTIVAÇÃO<br>
-O Sistema “Auxílio Jurídico” tem como objetivo auxiliar juridicamente as pessoas de baixa renda na pandemia. Muitos cidadãos tiveram problemas em receber seus benefícios, como: seguro-desemprego, auxílio emergencial etc. Os cidadãos não podem sair de casa para poder resolver esses problemas, e muitos não podem pagar advogados ou nem sabem como recorrer, e é nessa hora que entra o “Auxílio Jurídico”.
+O Sistema “Auxílio Jurídico” tem como objetivo auxiliar juridicamente as pessoas de baixa renda na pandemia da COVID-19, iniciada em 2020. Muitos cidadãos tiveram problemas em receber seus benefícios, como: seguro-desemprego, auxílio emergencial etc. Os cidadãos não podem sair de casa para poder resolver esses problemas, e muitos não podem pagar advogados ou nem sabem como recorrer, e é nessa hora que entra o “Auxílio Jurídico”.
 
 ### 3. MINI-MUNDO<br>
 
