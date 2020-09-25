@@ -1,8 +1,8 @@
 /* Drops */
 
 DROP TABLE IF EXISTS usuario CASCADE;
-DROP TABLE IF EXISTS profissional_juridico CASCADE;
 DROP TABLE IF EXISTS auxiliado CASCADE;
+DROP TABLE IF EXISTS profissional_juridico CASCADE;
 DROP TABLE IF EXISTS solicitacao CASCADE;
 DROP TABLE IF EXISTS mensagem CASCADE;
 DROP VIEW IF EXISTS visao_geral CASCADE;
@@ -15,17 +15,17 @@ CREATE TABLE usuario (
 	senha varchar(30)
 );
 
-CREATE TABLE profissional_juridico (
-	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
-	numero_oab bigint
-);
-
 CREATE TABLE auxiliado (
 	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
 	ctps bigint,
 	rg bigint,
 	numero_telefone int,
 	data_nascimento date
+);
+
+CREATE TABLE profissional_juridico (
+	cpf_usuario bigint REFERENCES usuario(cpf) PRIMARY KEY,
+	numero_oab bigint
 );
 
 CREATE TABLE solicitacao (
