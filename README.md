@@ -29,7 +29,9 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 * Listar mensagens de ligadas a uma solicitação.
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true)
+[Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/tabela-completa.xlsx?raw=true) <br>
+
+> _Obs.: Essa tabela foi obtida através da view de visão geral, cuja estrutura pode ser encontrada no arquivo [drops_creates_e_inserts.sql](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/drops_creates_e_inserts.sql?raw=true)._
     
 ### 5.MODELO CONCEITUAL<br>
 ![Modelo conceitual do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/imagens/modeloconceitual.png?raw=true)
@@ -85,6 +87,8 @@ CREATE TABLE mensagem (
 	cpf_remetente bigint REFERENCES usuario(cpf)
 );
 ```
+
+> _Obs.: A estrutura da view de visão geral, pode ser encontrada no arquivo [drops_creates_e_inserts.sql](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/drops_creates_e_inserts.sql?raw=true)._
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
