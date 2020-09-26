@@ -97,7 +97,7 @@ CREATE TABLE mensagem (
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 [Visualizar em tempo real no Colab](https://colab.research.google.com/drive/1j0ICDi_BpbP6BwfdsQ4bEc74kuqLuRNM?usp=sharing) <br>
-[Visualizar em tempo real no GitHub](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/AuxilioJuridico_tabelas.ipynb)
+[Visualizar em tempo real no GitHub](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/AuxilioJuridico.ipynb)
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
@@ -444,9 +444,9 @@ SELECT usuario.nome, COUNT(solicitacao.*) AS solicitacoes_atendidas
 
 ### 10 RELATÓRIOS E GRÁFICOS
 
-#### a) análises e resultados provenientes do banco de dados desenvolvido (usar modelo disponível)
-#### b) link com exemplo de relatórios será disponiblizado pelo professor no AVA
-#### OBS: Esta é uma atividade de grande relevância no contexto do trabalho. Mantenha o foco nos 5 principais relatórios/resultados visando obter o melhor resultado possível.
+Os relatórios do sistema e seus gráficos podem ser visualizados em tempo real nos seguintes locais: <br>
+- [Google Colab](https://colab.research.google.com/drive/1j0ICDi_BpbP6BwfdsQ4bEc74kuqLuRNM?usp=sharing) <br>
+- [GitHub](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/AuxilioJuridico.ipynb)
 
     
 
