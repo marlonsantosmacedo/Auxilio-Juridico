@@ -22,11 +22,11 @@ Para utilizar esse auxílio o auxiliado precisa acessar o sistema e informar seu
 
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO? 
 > O sistema Auxílio Jurídico utiliza principalmente as seguintes consultas:
-* Buscar um auxiliado por nome de usuário.
-* Listar solicitações abertas por um auxiliado.
-* Listar solicitações não atendidas por nenhum profissional.
-* Listar solicitações em aberto atendidas por um profissional jurídico.
-* Listar mensagens de ligadas a uma solicitação.
+* Qual a quantidade de solicitações abertas por mês?
+* Quantas solicitações atendidas?
+* Qual a faixa etária dos auxiliados?
+* Como saber se a demanda de solicitações está balanceada?
+* Qual região precisou mais de auxilio na pandemia com o aplicativo?
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
 [Tabela de dados do Auxílio Jurídico](https://github.com/marlonsantosmacedo/Auxilio-Juridico/blob/master/arquivos/visao_geral.xlsx?raw=true) <br>
